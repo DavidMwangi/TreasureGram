@@ -6,6 +6,8 @@ def index(request):
 
     return render(request, 'main_app/index.html', {'treasures':treasures})
 
+
+"""
 #DYNAMIC DATA
 
 class Treasure():
@@ -23,3 +25,5 @@ treasures = [
     Treasure("Fool's Gold", 0, 'pyrite', "Fool's Fall, CO", ""),
     Treasure('Coffee Can', 20.00, 'tin', 'Acme, CA', ""),
 ]
+
+"""
