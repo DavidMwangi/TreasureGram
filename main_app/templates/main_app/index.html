@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html >
+<html lang="en">
 
 <head>
 
@@ -16,7 +16,10 @@
 
 <body>
 
-    <h1>Welcome to Treasure Gram</h1>
+    <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
+
+        <a href="/"><img src="{% static 'images/logo.png'%}" height="90" ></a>
+    </nav>
 
     {% for treasure in treasures %}
 
