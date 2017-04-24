@@ -1,8 +1,12 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 
 <html >
 
 <head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
     <title>Treasure Gram</title>
 
@@ -11,6 +15,22 @@
 <body>
 
     <h1>Welcome to Treasure Gram</h1>
+
+    {% for treasure in treasures %}
+
+        <p>{{ treasure.name }}</p>
+        <p>{% if treasure.value > 0 %}
+
+                {{ treasure.value }}
+
+            {% else %}
+
+                {{ 'Unknown' }}
+        </p>
+
+        {% endif %}
+
+    {% endfor %}
 </body>
 
 </html>
