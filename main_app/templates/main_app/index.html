@@ -63,7 +63,20 @@
 
                         </th>
 
-                        <td>{{ treasure.value }}</td>
+                        <td>
+
+                            {% if treasure.value > 0 %}
+
+                                {{ treasure.value }}
+
+                            {% else %}
+
+                                {{ 'Unknown' }}
+
+                            {% endif %}
+
+
+                        </td>
 
                     </tr>
 
