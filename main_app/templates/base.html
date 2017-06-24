@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- base.html contains code that is in all templates. Avoids the duplication of code in templates. Facilitates code reuse-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    <title>Treasure Gram | Test Page</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
+
+        <a href="/"><img src="{% static 'images/logo.png'%}" height="90" ></a>
+    </nav>
+
+    <!-- The block below will hold the content od other templates. When other templates are rendered, the content of their blocks will be coped here-->
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
