@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from main_app.models import Treasure
 
-# Create your views here.
+
+def test(request):
+
+    treasures = Treasure.objects.all()
+
+    return render(request, 'testapp/test.html', {'treasures':treasures})
