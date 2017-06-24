@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
-    <title>Treasure Gram</title>
+    <title>Treasure Gram| Home </title>
 
 </head>
 
@@ -23,81 +23,41 @@
 
     <main class="container container--mw700">
 
-        {%for treasure in treasures%}
+        <div class="row">
 
-        <div class="treasure panel panel-default">
+            {%for treasure in treasures%}
 
-            <div class="panel-heading">
+                <div class="col-md-4">
 
-                <h3 class="panel-title">{{ treasure.name }}</h3>
+                    <div class="treasure panel panel-default">
 
-            </div>
+                        <div class="panel-heading">
 
-            <div class="panel-body">
+                            <h3 class="panel-title">{{ treasure.name }}</h3>
 
-                <div class="treasure-photo">
+                        </div>
 
-                    <img src="{{ treasure.img_url }}" height="100">
+                        <div class="panel-body">
+
+                            <div class="treasure-photo">
+
+                                <img src="{{ treasure.img_url }}" height="100">
+
+                            </div>
+                        </div>
+
+
+                    </div>
 
                 </div>
 
-                <table class="treasure-table">
+            {% if forloop.counter|divisibleby:3 %} <!-- Ensures that after every 3 iterations, a new row is created. Avoids overlays caused by varying image heights -->
+                </div><div class = "row"> <!-- If the condition is met (Iteration divisible by 3, the current row is ended and another one started. -->
+            {% endif %}
 
-                    <tr>
-                        <th>
-
-                            <img src="{% static 'images/material-icon.png'%}" alt = "Material-Icon">
-                            Material:
-                        </th>
-
-                        <td>{{ treasure.material }}</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>
-
-                            <img src="{% static 'images/value-icon.png' %}" alt="Value-Icon">
-                            Value:
-
-                        </th>
-
-                        <td>
-
-                            {% if treasure.value > 0 %}
-
-                                {{ treasure.value }}
-
-                            {% else %}
-
-                                {{ 'Unknown' }}
-
-                            {% endif %}
-
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>
-
-                            <img src="{% static 'images/location-icon.png' %}" alt="Value-Icon">
-                            Location:
-
-                        </th>
-
-                        <td>{{ treasure.location }}</td>
-
-                    </tr>
-
-                </table>
-            </div>
+            {% endfor %}
         </div>
 
-        {% endfor %}
     </main>
 </body>
 
